@@ -1,0 +1,84 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: Entwurf und Inbetriebnahme einer Testumgebung für Klasse-D Leistungsverstärker
+author: C. Ymele-Dega, A. Huber, M. Meiners
+copyright: "2024"
+logo: hsb-logo.png
+
+exclude_patterns: ["LICENSE.md", "README.md"]
+
+only_build_toc_files: true
+
+# Short description about the book
+description: >- Bachelorthesis (B.Eng.)
+
+# HTML-specific settings
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+html:
+  home_page_in_navbar: true
+  use_issues_button: true
+  use_repository_button: true
+  use_edit_page_button: true
+  navbar_number_sections: true
+  baseurl: "https://mimeiners.github.io/class-d-test/"
+
+  comments:
+    hypothesis: true
+    utterances:
+      repo: "mimeiners/class-d-test"
+      dokieli: true
+  extra_footer : |
+    <div>
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">
+      <img src="https://licensebuttons.net/l/by-nc-sa/3.0/88x31.png"></a>
+      All content on this site (unless otherwise specified) is licensed under the 
+      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0 license</a>
+    </div>
+
+
+# LaTeX settings
+bibtex_bibfiles:
+  - _bibliography/references.bib
+latex:
+  latex_documents:
+    targetname: class-d-test.tex
+
+# Launch button settings
+launch_buttons:
+  notebook_interface: "jupyterlab"
+  
+repository:
+  url: https://github.com/mimeiners/class-d-test
+
+# Advanced and power-user settings
+sphinx:
+  extra_extensions:
+    - sphinx_proof
+  config:
+    html_show_copyright: true
+    html_extra_path: ['files']
+    language: de
+    bibtex_reference_style: author_year
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+
+    myst_enable_extensions: 
+    - amsmath
+    - dollarmath
+    - colon_fence
+    - deflist
+    - html_image
+    - linkify
+    - replacements
+    - substitution
+
+    myst_substitutions:
+      INSTRUCTOR: "Prof. Dr.-Ing. Mirco Meiners (he/his/him)"
+      OFFICE: "E 508"
+      COURSE_CODE: "THS"
+      CREDITS: "6"
+      TITLE: "Bachelorthesis B.Eng."
+      PREREQS: ""
+      TERM: "WiSe2024/25"
+      ROOM: "E 507"
+      ASSOCIATE_HEAD: "Alexander Huber [ahuber@aertecsolutions.com](mailto:ahuber@aertecsolutions.com)"

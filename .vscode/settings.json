@@ -1,0 +1,29 @@
+{
+    "cSpell.language": "en,en-GB",
+    "cSpell.enableFiletypes": [
+        "!erlang",
+        "!json",
+        "bibtex",
+        "bibtex-style",
+        "csv",
+        "csv (pipe)",
+        "csv (semicolon)",
+        "csv (whitespace)",
+        "excel",
+        "hugo",
+        "markdown-math",
+        "markdown_latex_combined",
+        "matlab",
+        "mermaid",
+        "org",
+        "quarto",
+        "r",
+        "rmd",
+        "spice",
+        "sql",
+        "tex",
+        "tsv",
+        "verilog",
+        "vhdl"
+    ]
+}
