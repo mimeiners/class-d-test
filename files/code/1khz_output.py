@@ -10,17 +10,17 @@ import matplotlib.pyplot as plt
 import wave
 import struct
 
-# Audioparameter
+# %% Audioparameter
 sample_rate = 44100  # Abtastrate
 dauer = 5  # Signaldauer in Sekunden
 frequenz = 1000.0  # Frequenz des Signals in Hz
 
-# Erzeuge das Sinussignal
+# %% Erzeuge das Sinussignal
 t = np.linspace(0, dauer, int(sample_rate * dauer), False)
-Dc_offset = 0.3 
+Dc_offset = 0.3
 signal = Dc_offset + (0.5 * np.sin(2 * np.pi * frequenz * t))
 
-# Signal darstellen
+# %% Signal darstellen
 plt.figure(1)
 plt.figure(figsize=(12, 6))
 plt.title("Sinussignal")
@@ -30,10 +30,10 @@ plt.ylabel("Amplitude in V")
 plt.grid()
 plt.show()
 
-# Konvertiere in 16-Bit-Audiodaten
+# %% Konvertiere in 16-Bit-Audiodaten
 signal_int = np.int16(signal * 32767)
 
-# Speichere das Audiosignal als .wav-Datei
+# %% Speichere das Audiosignal als .wav-Datei
 with wave.open("1khz_output.wav", "w") as file:
     file.setnchannels(1)  # Mono
     file.setsampwidth(2)  # 16 Bit
