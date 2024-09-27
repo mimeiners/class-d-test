@@ -38,11 +38,11 @@ stream.close()
 p.terminate()
 
 # %% Die Audiodaten in einer WAV-Datei speichern
-wf = wave.open("aufnahme_pyaudio.wav", 'wb')
+wf = wave.open("../wavefile/aufnahme_pyaudio.wav", 'wb')
 wf.setnchannels(kanäle)
 wf.setsampwidth(p.get_sample_size(format))
 wf.setframerate(sample_rate)
 wf.writeframes(b''.join(frames))
 wf.close()
 
-print("Die Audiodatei 'aufnahme_pyaudio.wav' wurde gespeichert.")
+print("Die Audiodatei 'aufnahme_pyaudio.wav' wurde im Ordner 'wavefile' gespeichert.")
