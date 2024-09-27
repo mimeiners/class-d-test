@@ -34,11 +34,11 @@ plt.show()
 signal_int = np.int16(signal * 32767)
 
 # %% Speichere das Audiosignal als .wav-Datei
-with wave.open("1khz_output.wav", "w") as file:
+with wave.open("../wavefile/1khz_output.wav", "w") as file:
     file.setnchannels(1)  # Mono
     file.setsampwidth(2)  # 16 Bit
     file.setframerate(sample_rate)
     for s in signal_int:
         file.writeframes(struct.pack('h', s))
 
-print("1 kHz-Signal erfolgreich generiert und gespeichert!")
+print("1 kHz-Signal erfolgreich generiert und im Ordner 'wavefile' gespeichert!")
