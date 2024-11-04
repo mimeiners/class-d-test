@@ -206,8 +206,21 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#geräte-und-protokolle" id="toc-geräte-und-protokolle" class="nav-link active" data-scroll-target="#geräte-und-protokolle"><span class="header-section-number">5.1</span> Geräte und Protokolle</a>
+  <ul class="collapse">
+  <li><a href="#audio-analyzer" id="toc-audio-analyzer" class="nav-link" data-scroll-target="#audio-analyzer"><span class="header-section-number">5.1.1</span> Audio Analyzer</a></li>
+  <li><a href="#i2s-protokoll" id="toc-i2s-protokoll" class="nav-link" data-scroll-target="#i2s-protokoll"><span class="header-section-number">5.1.2</span> I2S-Protokoll</a></li>
+  <li><a href="#i2c-protokol" id="toc-i2c-protokol" class="nav-link" data-scroll-target="#i2c-protokol"><span class="header-section-number">5.1.3</span> I2C-Protokol</a></li>
+  </ul></li>
+  <li><a href="#startsequenz" id="toc-startsequenz" class="nav-link" data-scroll-target="#startsequenz"><span class="header-section-number">5.2</span> Startsequenz</a></li>
+  <li><a href="#durchführung-der-messungen" id="toc-durchführung-der-messungen" class="nav-link" data-scroll-target="#durchführung-der-messungen"><span class="header-section-number">5.3</span> Durchführung der Messungen</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mimeiners/class-d-test/edit/main/docs/04_Teststand.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mimeiners/class-d-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -231,8 +244,34 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<p>Für die Durchführung der Messungen wurden fünf Class-D-Verstärkerboards ausge-wählt: TAS5825, TAS2781, TAS2764, SSM3525 und MAX98374. Ziel dieser Messun-gen ist es, die „Big Six“ Parameter – Pegel, Frequenzgang, THD+N, Phase, Überspre-chen und Signal-Rausch-Verhältnis – zu erfassen und zu analysieren. Der Messaufbau nutzt den APx52x B Series Audio Analyzer, der über die APx500 v9.0 Software gesteu-ert wird, um diese Parameter genau zu messen und zu bewerten.</p>
+<p>Das Testsignal wird durch den APx52x Audio Analyzer erzeugt und über das I2S-Protokoll (Inter-IC Sound) an die Eingänge der Class-D-Verstärker übertragen. An-schließend werden die verstärkten Ausgangssignale der Boards zurück in den Analyzer geleitet, um die Verstärkerleistung anhand der relevanten Parameter auszuwerten. Eine entscheidende Voraussetzung für den Betrieb der Verstärkerboards ist die Konfiguration einer Startsequenz, die mit der PurePath Console von Texas Instruments erstellt wird und über das I2C-Protokoll (Inter-Integrated Circuit) an die Boards übertragen wird.</p>
+<p>Abbildung 1: Messaufbau</p>
+<section id="geräte-und-protokolle" class="level2" data-number="5.1">
+<h2 data-number="5.1" class="anchored" data-anchor-id="geräte-und-protokolle"><span class="header-section-number">5.1</span> Geräte und Protokolle</h2>
+<section id="audio-analyzer" class="level3" data-number="5.1.1">
+<h3 data-number="5.1.1" class="anchored" data-anchor-id="audio-analyzer"><span class="header-section-number">5.1.1</span> Audio Analyzer</h3>
+<p>Der APx52x Analyzer ist ein präzises Messinstrument, das speziell für Audiotests entwi-ckelt wurde. In Kombination mit der APx500 v9.0 Software ermöglicht er detaillierte und genaue Messungen der „Big Six“ Parameter und ist ein entscheidendes Werkzeug für diese Untersuchungen. Der Analyzer unterstützt verschiedene Signalquellen und Schnitt-stellen und stellt damit eine flexible Lösung für umfassende Audiotests dar.</p>
+</section>
+<section id="i2s-protokoll" class="level3" data-number="5.1.2">
+<h3 data-number="5.1.2" class="anchored" data-anchor-id="i2s-protokoll"><span class="header-section-number">5.1.2</span> I2S-Protokoll</h3>
+<p>Das I2S (Inter-IC Sound) Protokoll wurde speziell für die Übertragung von Audiosignalen zwischen digitalen Audio-Komponenten entwickelt. Es ermöglicht eine präzise Über-tragung der Audiodaten und bietet die notwendige Synchronisation zwischen den digita-len Audioquellen und den Verstärkern. Die Verwendung des I2S-Protokolls stellt sicher, dass das Testsignal ohne Qualitätseinbußen zu den Eingängen der Class-D-Verstärker gelangt, was entscheidend für die Validität der Messungen ist.</p>
+</section>
+<section id="i2c-protokol" class="level3" data-number="5.1.3">
+<h3 data-number="5.1.3" class="anchored" data-anchor-id="i2c-protokol"><span class="header-section-number">5.1.3</span> I2C-Protokol</h3>
+<p>Das I2C-Protokoll (Inter-Integrated Circuit) dient der Kommunikation zwischen verschie-denen Komponenten, wie in diesem Fall zwischen der PurePath Console und den Ver-stärkerboards. Es ermöglicht eine einfache Konfiguration und Steuerung der Geräte über eine serielle Schnittstelle. Im Rahmen dieser Messung wird das I²C-Protokoll zur Über-tragung der Startsequenz verwendet, die notwendig ist, um die Boards für den Messbe-trieb zu initialisieren.</p>
+</section>
+</section>
+<section id="startsequenz" class="level2" data-number="5.2">
+<h2 data-number="5.2" class="anchored" data-anchor-id="startsequenz"><span class="header-section-number">5.2</span> Startsequenz</h2>
+<p>Die Startsequenz ist erforderlich, um die Verstärkerboards in den korrekten Betriebszu-stand zu versetzen. Diese Sequenz umfasst Konfigurationsbefehle, die den Betrieb der Class-D-Verstärker auf die gewünschte Leistung und Effizienz einstellen. Die PurePath Console von Texas Instruments wird verwendet, um die Startsequenz präzise zu definie-ren, bevor sie über das I²C-Protokoll an die Boards gesendet wird. Die Implementierung der Startsequenz gewährleistet, dass die Boards stabil und korrekt arbeiten, was entschei-dend für die anschließende Messung der „Big Six“ Parameter ist.</p>
+</section>
+<section id="durchführung-der-messungen" class="level2" data-number="5.3">
+<h2 data-number="5.3" class="anchored" data-anchor-id="durchführung-der-messungen"><span class="header-section-number">5.3</span> Durchführung der Messungen</h2>
+<p>Sobald die Startsequenz abgeschlossen und die Boards betriebsbereit sind, wird der APx52x Analyzer verwendet, um ein standardisiertes Testsignal zu erzeugen. Dieses Sig-nal wird über das I²S-Protokoll an die Eingänge der Class-D-Verstärkerboards übertra-gen. Die Ausgänge der Verstärker werden wiederum mit dem Analyzer verbunden, um die „Big Six“ Parameter detailliert zu messen und zu analysieren.</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -675,7 +714,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/mimeiners/class-d-test/edit/main/docs/04_Teststand.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mimeiners/class-d-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mimeiners/class-d-test/edit/main/docs/04_Teststand.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mimeiners/class-d-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This thesis was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>

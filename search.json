@@ -8,5 +8,214 @@
     "crumbs": [
       "Preface"
     ]
+  },
+  {
+    "objectID": "docs/01_Einleitung.html",
+    "href": "docs/01_Einleitung.html",
+    "title": "2  Einleitung",
+    "section": "",
+    "text": "2.1 Motivation\nDie Digitalisierung des Audiosystems im A320 wird im Rahmen eines Modernisierungs-prozesses umgesetzt, um die Effizienz und Zuverlässigkeit des Systems zu steigern und das Gesamtgewicht des Flugzeugs zu reduzieren. Aktuelle analoge Verstärker verursa-chen hohen Energieverbrauch und zusätzliche Systemlast, was sich negativ auf die Effizi-enz des Flugzeugbetriebs auswirkt. Die Einführung von Class-D-Verstärkern verspricht eine deutliche Verbesserung, da sie nicht nur weniger Energie verbrauchen, sondern auch weniger anfällig für Störungen sind. Diese Arbeit ist daher entscheidend, um die besten technologischen Optionen für die Digitalisierung des Audiosystems im A320 zu ermitteln und langfristig eine optimale Leistungsfähigkeit zu gewährleisten.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einleitung</span>"
+    ]
+  },
+  {
+    "objectID": "docs/01_Einleitung.html#problemstellung",
+    "href": "docs/01_Einleitung.html#problemstellung",
+    "title": "2  Einleitung",
+    "section": "2.2 Problemstellung",
+    "text": "2.2 Problemstellung\nDie vorhandenen analogen Audiosysteme im A320 entsprechen nicht mehr den modernen Anforderungen und weisen mehrere Nachteile auf. Durch ihren hohen Energieverbrauch und die zusätzliche Wärmeentwicklung arbeiten sie ineffizient und belasten das Gesamt-system erheblich. Der Einsatz eines Class-D-Verstärkers als digitalisierte Lösung ver-spricht eine Reduzierung des Energieverbrauchs und eine Verbesserung der Signalquali-tät. Allerdings bringt die Auswahl des geeigneten Verstärkers komplexe Anforderungen mit sich: Der Verstärker muss nicht nur eine hohe Audioqualität bieten, sondern auch die strengen Anforderungen der Luftfahrtindustrie hinsichtlich Zuverlässigkeit, Effizienz und Kompatibilität erfüllen. Die Herausforderung liegt also darin, den optimalen Class-D-Verstärker zu identifizieren, der diesen Anforderungen gerecht wird und die Digitalisie-rung des Audiosystems im A320 ermöglicht.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einleitung</span>"
+    ]
+  },
+  {
+    "objectID": "docs/01_Einleitung.html#zielsetzung",
+    "href": "docs/01_Einleitung.html#zielsetzung",
+    "title": "2  Einleitung",
+    "section": "2.3 Zielsetzung",
+    "text": "2.3 Zielsetzung\nDas Ziel dieser Arbeit ist die Auswahl und Charakterisierung eines geeigneten Class-D-Verstärkers, der den Anforderungen des digitalen Audiosignalpfads im A320 entspricht. Dies beinhaltet die Entwicklung eines Verhaltensmodells in SPICE, die Durchführung von Messungen an verschiedenen Eval-Boards sowie den Vergleich der gemessenen Da-ten mit den Herstellerangaben. Durch die Analyse und Darstellung der Ergebnisse in einer Entscheidungsmatrix wird der geeignetste Verstärker für die Implementierung im A320 ermittelt. Abschließend werden Empfehlungen für den praktischen Einsatz des ausge-wählten Verstärkers im A320 formuliert.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einleitung</span>"
+    ]
+  },
+  {
+    "objectID": "docs/01_Einleitung.html#aufbau-der-arbeit",
+    "href": "docs/01_Einleitung.html#aufbau-der-arbeit",
+    "title": "2  Einleitung",
+    "section": "2.4 Aufbau der Arbeit",
+    "text": "2.4 Aufbau der Arbeit\nDie Arbeit gliedert sich in sieben Kapitel. Das erste Kapitel bietet eine Einleitung und stellt die Ziele und den Rahmen der Arbeit vor. Im zweiten Kapitel wird der Stand der Technik der Class-D-Verstärker und der Digitalisierung im Audiosystem von Flugzeugen behan-delt. Kapitel drei beschreibt die Modellbildung des Class-D-Verstärkers in SPICE, wäh-rend im vierten Kapitel der Versuchsaufbau und die Messmethoden für die Evaluierung der Verstärker erläutert werden. Das fünfte Kapitel fasst die Ergebnisse zusammen und formuliert Empfehlungen. Abschließend folgen in Kapitel sechs die Bibliographie und in Kapitel sieben der Anhang mit zusätzlichen technischen Details und Ergebnissen.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>2</span>  <span class='chapter-title'>Einleitung</span>"
+    ]
+  },
+  {
+    "objectID": "docs/02_Stand_der_Technik.html",
+    "href": "docs/02_Stand_der_Technik.html",
+    "title": "3  Stand der Technik",
+    "section": "",
+    "text": "3.1 Relevante Technologien\nDie Digitalisierung von Audiosignalen ist ein zentrales Thema in der modernen Audioverarbeitung und gewinnt zunehmend an Bedeutung, insbesondere in der Luftfahrttechnik. Ein Hauptziel ist es, eine hohe Energieeffizienz und gleichzeitig eine herausragende Klangqualität zu erreichen. In diesem Zusammenhang bieten Class-D-Verstärker erhebliche Vorteile gegenüber herkömmlichen analogen Verstärkern, da sie weniger Energie verbrauchen und weniger Wärme erzeugen. Dieses Kapitel gibt einen Überblick über die aktuellen Technologien und Methoden der Digitalisierung von Audiosignalen und be-schreibt den Entwicklungsstand von Class-D-Verstärkern im Luftfahrtbereich.\nZur Digitalisierung von Audiosignalen und deren Verstärkung stehen mehrere Verstär-kerklassen zur Verfügung, darunter die Klassen A, B, AB und D. Jede dieser Klassen weist spezifische Eigenschaften auf, die sich auf Effizienz, Klangqualität und Anwen-dungsbereiche auswirken. Während Class-A- und Class-AB-Verstärker eine hohe Klang-qualität bieten, sind sie aufgrund ihres hohen Energieverbrauchs und ihrer geringen Effi-zienz für den Einsatz in Flugzeugen ungeeignet. Class-D-Verstärker hingegen arbeiten im Schaltbetrieb, was eine deutlich höhere Energieeffizienz ermöglicht. Sie verwenden Puls-weitenmodulation (PWM), bei der die Transistoren nur im “Ein” oder “Aus”-Zustand arbeiten, was den Energieverlust verringert und die Wärmeentwicklung minimiert. Diese Eigenschaften machen Class-D-Verstärker besonders attraktiv für die Luftfahrt, da sie zur Reduzierung von Gewicht und Energieverbrauch beitragen. Moderne Class-D-Verstärker verwenden Technologien wie Spread Spectrum Modulation, um elektromagnetische Stö-rungen (EMI) zu reduzieren und gleichzeitig eine hohe Effizienz zu gewährleisten. Darüber hinaus ist die Verwendung digitaler Schnittstellen wie I²S (Inter-IC Sound) und TDM (Time Division Multiplexing) in modernen Audiosystemen weit verbreitet, um die verlustfreie Übertragung und Verarbeitung von Audiosignalen zu gewährleisten. Diese Technologien sind besonders in sicherheitskritischen Bereichen wie der Luftfahrt von großer Bedeutung, da sie eine zuverlässige und störungsfreie Kommunikation sicherstel-len.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Stand der Technik</span>"
+    ]
+  },
+  {
+    "objectID": "docs/02_Stand_der_Technik.html#aktuelle-forschung-und-entwicklung",
+    "href": "docs/02_Stand_der_Technik.html#aktuelle-forschung-und-entwicklung",
+    "title": "3  Stand der Technik",
+    "section": "3.2 Aktuelle Forschung und Entwicklung",
+    "text": "3.2 Aktuelle Forschung und Entwicklung\nDie Forschung im Bereich der Class-D-Verstärker konzentriert sich auf die Minimierung von Verzerrungen (THD+N) und die Verbesserung des Signal-Rausch-Verhältnisses (SNR). Techniken wie Delta-Sigma-Modulation und das Feedback-Loop-System tragen dazu bei, die Signalverarbeitung weiter zu verbessern und die Klangqualität zu steigern.\nEin weiteres Forschungsfeld ist die Reduktion elektromagnetischer Störungen (EMI) durch fortschrittliche Modulationstechniken wie Spread-Spectrum-Modulation, um Stö-rungen zu minimieren und die Anforderungen der Luftfahrt an die Zuverlässigkeit zu er-füllen. Ein weiteres wichtiges Forschungsgebiet ist die Integration von Active Noise Cancellation (ANC)-Technologien in Class-D-Verstärker, um unerwünschte Geräusche zu eliminieren und die Sprachverständlichkeit zu verbessern, was vor allem im Cockpit des A320 wichtig ist.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Stand der Technik</span>"
+    ]
+  },
+  {
+    "objectID": "docs/02_Stand_der_Technik.html#existierende-lösungen-und-produkte",
+    "href": "docs/02_Stand_der_Technik.html#existierende-lösungen-und-produkte",
+    "title": "3  Stand der Technik",
+    "section": "3.3 Existierende Lösungen und Produkte",
+    "text": "3.3 Existierende Lösungen und Produkte\nDer Markt bietet eine Vielzahl an Class-D-Verstärkern, die für die Digitalisierung und Verstärkung von Audiosignalen verwendet werden können. Modelle wie der TAS5825 von Texas Instruments oder der SSM3582 von Analog Devices sind Beispiele für leis-tungsstarke Class-D-Verstärker, die für den Einsatz in anspruchsvollen Anwendungen konzipiert wurden. Diese Verstärker bieten Eigenschaften wie eine hohe Effizienz, gerin-ge Wärmeentwicklung und fortschrittliche Modulationstechniken zur Minimierung von Verzerrungen und Störungen. Jedoch sind diese Verstärker meist für den allgemeinen Einsatz ausgelegt und erfüllen nicht immer die spezifischen Anforderungen der Luftfahrt, insbesondere in Bezug auf Zuverlässigkeit und Störfestigkeit. Daher ist eine Anpassung oder die Auswahl spezieller Modelle erforderlich, um den Anforderungen der Luftfahrt-industrie gerecht zu werden.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Stand der Technik</span>"
+    ]
+  },
+  {
+    "objectID": "docs/02_Stand_der_Technik.html#offene-probleme-und-herausforderungen",
+    "href": "docs/02_Stand_der_Technik.html#offene-probleme-und-herausforderungen",
+    "title": "3  Stand der Technik",
+    "section": "3.4 Offene Probleme und Herausforderungen",
+    "text": "3.4 Offene Probleme und Herausforderungen\nTrotz der Vorteile, die Class-D-Verstärker bieten, gibt es in der Luftfahrtbranche noch offene Herausforderungen bei deren Einsatz. Eine zentrale Herausforderung besteht darin, die elektromagnetische Verträglichkeit (EMV) sicherzustellen, da Class-D-Verstärker durch ihre Schalttechnik potenziell elektromagnetische Störungen verursachen können, die kritische Systeme im Flugzeug beeinträchtigen könnten . Ein weiteres Problem ist die Kompatibilität der Verstärker mit digitalen Audiosystemen, die besonders hohe Anforde-rungen an die Synchronisation und Signalqualität stellen . Darüber hinaus erfordert die Implementierung solcher Verstärker eine hohe Zuverlässigkeit und eine lange Lebensdau-er, was in der Luftfahrtindustrie besonders wichtig ist. Die Auswahl des optimalen Ver-stärkers erfordert daher eine detaillierte Analyse und Charakterisierung der potenziellen Verstärker, um sicherzustellen, dass die Anforderungen an Sicherheit und Effizienz erfüllt werden.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Stand der Technik</span>"
+    ]
+  },
+  {
+    "objectID": "docs/02_Stand_der_Technik.html#fazit-und-überleitung",
+    "href": "docs/02_Stand_der_Technik.html#fazit-und-überleitung",
+    "title": "3  Stand der Technik",
+    "section": "3.5 Fazit und Überleitung",
+    "text": "3.5 Fazit und Überleitung\nZusammenfassend lässt sich feststellen, dass Class-D-Verstärker in der Luftfahrtbranche eine zukunftsweisende Technologie zur effizienten Verstärkung von Audiosignalen dar-stellen. Die technologische Entwicklung im Bereich der Class-D-Verstärker hat wesentli-che Fortschritte erzielt, die eine hohe Effizienz und eine verbesserte Klangqualität ermögli-chen . Dennoch bestehen nach wie vor Herausforderungen, die eine sorgfältige Auswahl und Anpassung der Verstärker erfordern. Im nächsten Kapitel wird die Modellbildung eines geeigneten Class-D-Verstärkers detailliert dargestellt, um dessen Eigenschaften zu analysieren und eine fundierte Basis für die weiteren Tests zu schaffen.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>3</span>  <span class='chapter-title'>Stand der Technik</span>"
+    ]
+  },
+  {
+    "objectID": "docs/03_Modellbildung.html",
+    "href": "docs/03_Modellbildung.html",
+    "title": "4  Modellbildung",
+    "section": "",
+    "text": "4.1 Ziel und Zweck der Modellbildung\nDas Ziel der Erstellung des Behavioral Modells eines Class-D-Verstärkers besteht darin, den grundsätzlichen Aufbau und die Funktionsweise eines solchen Verstärkers umfassend zu verstehen. Durch das Modell sollen die wesentlichen Bauelemente und der Betrieb eines Class-D-Verstärkers nachvollziehbar werden, insbesondere wie der Verstärker durch das Ein- und Ausschalten der Transistoren in hoher Effizienz arbeitet und den Leistungsverlust minimiert. In dieser Arbeit wird das Modell genutzt, um detaillierte Analysen der Verstärkereigenschaften wie Pegel, Frequenzgang, Total Harmonic Distortion plus Noise (THD+N), Phase, Übersprechen und Signal-Rausch-Verhältnis (SNR) durchzuführen.\nDas Modell wird zudem dazu eingesetzt, verschiedene Verstärkertypen – TAS2781, TAS2764, SSM3525 und MAX98374 – zu testen und miteinander zu vergleichen. Ziel ist es, die für den Einsatz im Audiosignalpfad der Decoder-Encoder-Unit (DEU) des A320 optimalen Verstärker auszuwählen, wobei die Analyse die Auswahl des für die Digitalisierung und Verstärkung geeigneten Class-D-Verstärkers stützt.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Modellbildung</span>"
+    ]
+  },
+  {
+    "objectID": "docs/03_Modellbildung.html#beschreibung-der-modellannahmen",
+    "href": "docs/03_Modellbildung.html#beschreibung-der-modellannahmen",
+    "title": "4  Modellbildung",
+    "section": "4.2 Beschreibung der Modellannahmen",
+    "text": "4.2 Beschreibung der Modellannahmen\nEin Class-D-Verstärker besteht aus mehreren essenziellen Funktionsblöcken, die das Eingangssignal effizient verstärken. Zunächst wird das analoge Audiosignal in der Eingangsstufe vorbereitet. Dann wandelt der Modulator das Signal in ein PWM-Signal um, indem er das Audiosignal mit einem Dreieck- oder Sägezahnsignal vergleicht. Die Treiberstufe übernimmt das PWM-Signal und steuert die MOSFETs der Leistungsstufe an, die im H-Brückenformat aufgebaut ist. Diese schalten abwechselnd vollständig ein und aus, wodurch die Energieverluste minimiert werden. Das PWM-Signal wird dann durch einen Tiefpassfilter geleitet, der die hochfrequenten Anteile entfernt und das Signal in eine analoge Form zurückführt, die für den Lautsprecher geeignet ist. Schließlich sorgt eine Feedback-Schleife in manchen Verstärkern dafür, dass das Ausgangssignal möglichst verzerrungsfrei bleibt und das Eingangssignal präzise wiedergegeben wird. Zur Vereinfachung des Modells werden mehrere Annahmen getroffen. Es wird nur der Ausgang der Eingangsstufe betrachtet, wobei die Spannungsquelle als ideal angenommen wird, um Schwankungen und Störungen in der Versorgungsspannung auszuschließen. Die Treiberstufe wird ebenfalls als ideal modelliert, sodass keine Verluste oder Verzögerungen in der Signalübertragung berücksichtigt werden. Die MOSFETs agieren in diesem Modell als ideale Schalter, die ohne Verluste oder Verzögerungen zwischen den Zuständen „Ein“ und „Aus“ wechseln. Zudem wird die Feedback-Schleife ignoriert, was eine konstante Verstärkung ohne Rückkopplung zur Folge hat.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Modellbildung</span>"
+    ]
+  },
+  {
+    "objectID": "docs/03_Modellbildung.html#mathematische-modellierung-und-gleichungen",
+    "href": "docs/03_Modellbildung.html#mathematische-modellierung-und-gleichungen",
+    "title": "4  Modellbildung",
+    "section": "4.3 Mathematische Modellierung und Gleichungen",
+    "text": "4.3 Mathematische Modellierung und Gleichungen\n\n4.3.1 Pulsweitenmodulation (PWM)\n\n\n4.3.2 Schaltverhalten der Transistoren\nEin Class-D-Verstärker wandelt das analoge Eingangssignal in ein PWM-Signal um, das die Schalttransistoren ansteuert. Die Modulation basiert auf dem Vergleich des Audiosignals \\(V_{in}(t)\\) mit einer Trägerschwingung, meist einer Dreieck- oder Sägezahnspannung \\(V_{tr}(t)\\). Die PWM-Spannung \\(V_{PWM}(t)\\) kann mathematisch als ein binäres Signal beschrieben werden, das den Zustand der Transistoren steuert:\n\n\n4.3.3 Low-Pass-Filter",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Modellbildung</span>"
+    ]
+  },
+  {
+    "objectID": "docs/03_Modellbildung.html#simulation-und-implementierung-im-simulationstool",
+    "href": "docs/03_Modellbildung.html#simulation-und-implementierung-im-simulationstool",
+    "title": "4  Modellbildung",
+    "section": "4.4 Simulation und Implementierung im Simulationstool",
+    "text": "4.4 Simulation und Implementierung im Simulationstool",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Modellbildung</span>"
+    ]
+  },
+  {
+    "objectID": "docs/03_Modellbildung.html#verifikation-und-validierung-des-modells",
+    "href": "docs/03_Modellbildung.html#verifikation-und-validierung-des-modells",
+    "title": "4  Modellbildung",
+    "section": "4.5 Verifikation und Validierung des Modells",
+    "text": "4.5 Verifikation und Validierung des Modells",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Modellbildung</span>"
+    ]
+  },
+  {
+    "objectID": "docs/03_Modellbildung.html#diskussion-der-modellergebnisse",
+    "href": "docs/03_Modellbildung.html#diskussion-der-modellergebnisse",
+    "title": "4  Modellbildung",
+    "section": "4.6 Diskussion der Modellergebnisse",
+    "text": "4.6 Diskussion der Modellergebnisse",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>4</span>  <span class='chapter-title'>Modellbildung</span>"
+    ]
+  },
+  {
+    "objectID": "docs/04_Teststand.html",
+    "href": "docs/04_Teststand.html",
+    "title": "5  Teststand",
+    "section": "",
+    "text": "5.1 Geräte und Protokolle\nFür die Durchführung der Messungen wurden fünf Class-D-Verstärkerboards ausge-wählt: TAS5825, TAS2781, TAS2764, SSM3525 und MAX98374. Ziel dieser Messun-gen ist es, die „Big Six“ Parameter – Pegel, Frequenzgang, THD+N, Phase, Überspre-chen und Signal-Rausch-Verhältnis – zu erfassen und zu analysieren. Der Messaufbau nutzt den APx52x B Series Audio Analyzer, der über die APx500 v9.0 Software gesteu-ert wird, um diese Parameter genau zu messen und zu bewerten.\nDas Testsignal wird durch den APx52x Audio Analyzer erzeugt und über das I2S-Protokoll (Inter-IC Sound) an die Eingänge der Class-D-Verstärker übertragen. An-schließend werden die verstärkten Ausgangssignale der Boards zurück in den Analyzer geleitet, um die Verstärkerleistung anhand der relevanten Parameter auszuwerten. Eine entscheidende Voraussetzung für den Betrieb der Verstärkerboards ist die Konfiguration einer Startsequenz, die mit der PurePath Console von Texas Instruments erstellt wird und über das I2C-Protokoll (Inter-Integrated Circuit) an die Boards übertragen wird.\nAbbildung 1: Messaufbau",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Teststand</span>"
+    ]
+  },
+  {
+    "objectID": "docs/04_Teststand.html#geräte-und-protokolle",
+    "href": "docs/04_Teststand.html#geräte-und-protokolle",
+    "title": "5  Teststand",
+    "section": "",
+    "text": "5.1.1 Audio Analyzer\nDer APx52x Analyzer ist ein präzises Messinstrument, das speziell für Audiotests entwi-ckelt wurde. In Kombination mit der APx500 v9.0 Software ermöglicht er detaillierte und genaue Messungen der „Big Six“ Parameter und ist ein entscheidendes Werkzeug für diese Untersuchungen. Der Analyzer unterstützt verschiedene Signalquellen und Schnitt-stellen und stellt damit eine flexible Lösung für umfassende Audiotests dar.\n\n\n5.1.2 I2S-Protokoll\nDas I2S (Inter-IC Sound) Protokoll wurde speziell für die Übertragung von Audiosignalen zwischen digitalen Audio-Komponenten entwickelt. Es ermöglicht eine präzise Über-tragung der Audiodaten und bietet die notwendige Synchronisation zwischen den digita-len Audioquellen und den Verstärkern. Die Verwendung des I2S-Protokolls stellt sicher, dass das Testsignal ohne Qualitätseinbußen zu den Eingängen der Class-D-Verstärker gelangt, was entscheidend für die Validität der Messungen ist.\n\n\n5.1.3 I2C-Protokol\nDas I2C-Protokoll (Inter-Integrated Circuit) dient der Kommunikation zwischen verschie-denen Komponenten, wie in diesem Fall zwischen der PurePath Console und den Ver-stärkerboards. Es ermöglicht eine einfache Konfiguration und Steuerung der Geräte über eine serielle Schnittstelle. Im Rahmen dieser Messung wird das I²C-Protokoll zur Über-tragung der Startsequenz verwendet, die notwendig ist, um die Boards für den Messbe-trieb zu initialisieren.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Teststand</span>"
+    ]
+  },
+  {
+    "objectID": "docs/04_Teststand.html#startsequenz",
+    "href": "docs/04_Teststand.html#startsequenz",
+    "title": "5  Teststand",
+    "section": "5.2 Startsequenz",
+    "text": "5.2 Startsequenz\nDie Startsequenz ist erforderlich, um die Verstärkerboards in den korrekten Betriebszu-stand zu versetzen. Diese Sequenz umfasst Konfigurationsbefehle, die den Betrieb der Class-D-Verstärker auf die gewünschte Leistung und Effizienz einstellen. Die PurePath Console von Texas Instruments wird verwendet, um die Startsequenz präzise zu definie-ren, bevor sie über das I²C-Protokoll an die Boards gesendet wird. Die Implementierung der Startsequenz gewährleistet, dass die Boards stabil und korrekt arbeiten, was entschei-dend für die anschließende Messung der „Big Six“ Parameter ist.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Teststand</span>"
+    ]
+  },
+  {
+    "objectID": "docs/04_Teststand.html#durchführung-der-messungen",
+    "href": "docs/04_Teststand.html#durchführung-der-messungen",
+    "title": "5  Teststand",
+    "section": "5.3 Durchführung der Messungen",
+    "text": "5.3 Durchführung der Messungen\nSobald die Startsequenz abgeschlossen und die Boards betriebsbereit sind, wird der APx52x Analyzer verwendet, um ein standardisiertes Testsignal zu erzeugen. Dieses Sig-nal wird über das I²S-Protokoll an die Eingänge der Class-D-Verstärkerboards übertra-gen. Die Ausgänge der Verstärker werden wiederum mit dem Analyzer verbunden, um die „Big Six“ Parameter detailliert zu messen und zu analysieren.",
+    "crumbs": [
+      "Main-Matter",
+      "<span class='chapter-number'>5</span>  <span class='chapter-title'>Teststand</span>"
+    ]
   }
 ]

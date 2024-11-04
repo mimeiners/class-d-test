@@ -69,6 +69,35 @@ ul.task-list li input[type="checkbox"] {
   }
 }</script>
 
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 </head>
 
@@ -206,8 +235,24 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#ziel-und-zweck-der-modellbildung" id="toc-ziel-und-zweck-der-modellbildung" class="nav-link active" data-scroll-target="#ziel-und-zweck-der-modellbildung"><span class="header-section-number">4.1</span> Ziel und Zweck der Modellbildung</a></li>
+  <li><a href="#beschreibung-der-modellannahmen" id="toc-beschreibung-der-modellannahmen" class="nav-link" data-scroll-target="#beschreibung-der-modellannahmen"><span class="header-section-number">4.2</span> Beschreibung der Modellannahmen</a></li>
+  <li><a href="#mathematische-modellierung-und-gleichungen" id="toc-mathematische-modellierung-und-gleichungen" class="nav-link" data-scroll-target="#mathematische-modellierung-und-gleichungen"><span class="header-section-number">4.3</span> Mathematische Modellierung und Gleichungen</a>
+  <ul class="collapse">
+  <li><a href="#pulsweitenmodulation-pwm" id="toc-pulsweitenmodulation-pwm" class="nav-link" data-scroll-target="#pulsweitenmodulation-pwm"><span class="header-section-number">4.3.1</span> Pulsweitenmodulation (PWM)</a></li>
+  <li><a href="#schaltverhalten-der-transistoren" id="toc-schaltverhalten-der-transistoren" class="nav-link" data-scroll-target="#schaltverhalten-der-transistoren"><span class="header-section-number">4.3.2</span> Schaltverhalten der Transistoren</a></li>
+  <li><a href="#low-pass-filter" id="toc-low-pass-filter" class="nav-link" data-scroll-target="#low-pass-filter"><span class="header-section-number">4.3.3</span> Low-Pass-Filter</a></li>
+  </ul></li>
+  <li><a href="#simulation-und-implementierung-im-simulationstool" id="toc-simulation-und-implementierung-im-simulationstool" class="nav-link" data-scroll-target="#simulation-und-implementierung-im-simulationstool"><span class="header-section-number">4.4</span> Simulation und Implementierung im Simulationstool</a></li>
+  <li><a href="#verifikation-und-validierung-des-modells" id="toc-verifikation-und-validierung-des-modells" class="nav-link" data-scroll-target="#verifikation-und-validierung-des-modells"><span class="header-section-number">4.5</span> Verifikation und Validierung des Modells</a></li>
+  <li><a href="#diskussion-der-modellergebnisse" id="toc-diskussion-der-modellergebnisse" class="nav-link" data-scroll-target="#diskussion-der-modellergebnisse"><span class="header-section-number">4.6</span> Diskussion der Modellergebnisse</a></li>
+  </ul>
+<div class="toc-actions"><ul><li><a href="https://github.com/mimeiners/class-d-test/edit/main/docs/03_Modellbildung.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mimeiners/class-d-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -231,8 +276,39 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<section id="ziel-und-zweck-der-modellbildung" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="ziel-und-zweck-der-modellbildung"><span class="header-section-number">4.1</span> Ziel und Zweck der Modellbildung</h2>
+<p>Das Ziel der Erstellung des Behavioral Modells eines Class-D-Verstärkers besteht darin, den grundsätzlichen Aufbau und die Funktionsweise eines solchen Verstärkers umfassend zu verstehen. Durch das Modell sollen die wesentlichen Bauelemente und der Betrieb eines Class-D-Verstärkers nachvollziehbar werden, insbesondere wie der Verstärker durch das Ein- und Ausschalten der Transistoren in hoher Effizienz arbeitet und den Leistungsverlust minimiert. In dieser Arbeit wird das Modell genutzt, um detaillierte Analysen der Verstärkereigenschaften wie Pegel, Frequenzgang, Total Harmonic Distortion plus Noise (THD+N), Phase, Übersprechen und Signal-Rausch-Verhältnis (SNR) durchzuführen.</p>
+<p>Das Modell wird zudem dazu eingesetzt, verschiedene Verstärkertypen – TAS2781, TAS2764, SSM3525 und MAX98374 – zu testen und miteinander zu vergleichen. Ziel ist es, die für den Einsatz im Audiosignalpfad der Decoder-Encoder-Unit (DEU) des A320 optimalen Verstärker auszuwählen, wobei die Analyse die Auswahl des für die Digitalisierung und Verstärkung geeigneten Class-D-Verstärkers stützt.</p>
+</section>
+<section id="beschreibung-der-modellannahmen" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="beschreibung-der-modellannahmen"><span class="header-section-number">4.2</span> Beschreibung der Modellannahmen</h2>
+<p>Ein Class-D-Verstärker besteht aus mehreren essenziellen Funktionsblöcken, die das Eingangssignal effizient verstärken. Zunächst wird das analoge Audiosignal in der Eingangsstufe vorbereitet. Dann wandelt der Modulator das Signal in ein PWM-Signal um, indem er das Audiosignal mit einem Dreieck- oder Sägezahnsignal vergleicht. Die Treiberstufe übernimmt das PWM-Signal und steuert die MOSFETs der Leistungsstufe an, die im H-Brückenformat aufgebaut ist. Diese schalten abwechselnd vollständig ein und aus, wodurch die Energieverluste minimiert werden. Das PWM-Signal wird dann durch einen Tiefpassfilter geleitet, der die hochfrequenten Anteile entfernt und das Signal in eine analoge Form zurückführt, die für den Lautsprecher geeignet ist. Schließlich sorgt eine Feedback-Schleife in manchen Verstärkern dafür, dass das Ausgangssignal möglichst verzerrungsfrei bleibt und das Eingangssignal präzise wiedergegeben wird. Zur Vereinfachung des Modells werden mehrere Annahmen getroffen. Es wird nur der Ausgang der Eingangsstufe betrachtet, wobei die Spannungsquelle als ideal angenommen wird, um Schwankungen und Störungen in der Versorgungsspannung auszuschließen. Die Treiberstufe wird ebenfalls als ideal modelliert, sodass keine Verluste oder Verzögerungen in der Signalübertragung berücksichtigt werden. Die MOSFETs agieren in diesem Modell als ideale Schalter, die ohne Verluste oder Verzögerungen zwischen den Zuständen „Ein“ und „Aus“ wechseln. Zudem wird die Feedback-Schleife ignoriert, was eine konstante Verstärkung ohne Rückkopplung zur Folge hat.</p>
+</section>
+<section id="mathematische-modellierung-und-gleichungen" class="level2" data-number="4.3">
+<h2 data-number="4.3" class="anchored" data-anchor-id="mathematische-modellierung-und-gleichungen"><span class="header-section-number">4.3</span> Mathematische Modellierung und Gleichungen</h2>
+<section id="pulsweitenmodulation-pwm" class="level3" data-number="4.3.1">
+<h3 data-number="4.3.1" class="anchored" data-anchor-id="pulsweitenmodulation-pwm"><span class="header-section-number">4.3.1</span> Pulsweitenmodulation (PWM)</h3>
+</section>
+<section id="schaltverhalten-der-transistoren" class="level3" data-number="4.3.2">
+<h3 data-number="4.3.2" class="anchored" data-anchor-id="schaltverhalten-der-transistoren"><span class="header-section-number">4.3.2</span> Schaltverhalten der Transistoren</h3>
+<p>Ein Class-D-Verstärker wandelt das analoge Eingangssignal in ein PWM-Signal um, das die Schalttransistoren ansteuert. Die Modulation basiert auf dem Vergleich des Audiosignals <span class="math inline">\(V_{in}(t)\)</span> mit einer Trägerschwingung, meist einer Dreieck- oder Sägezahnspannung <span class="math inline">\(V_{tr}(t)\)</span>. Die PWM-Spannung <span class="math inline">\(V_{PWM}(t)\)</span> kann mathematisch als ein binäres Signal beschrieben werden, das den Zustand der Transistoren steuert:</p>
+</section>
+<section id="low-pass-filter" class="level3" data-number="4.3.3">
+<h3 data-number="4.3.3" class="anchored" data-anchor-id="low-pass-filter"><span class="header-section-number">4.3.3</span> Low-Pass-Filter</h3>
+</section>
+</section>
+<section id="simulation-und-implementierung-im-simulationstool" class="level2" data-number="4.4">
+<h2 data-number="4.4" class="anchored" data-anchor-id="simulation-und-implementierung-im-simulationstool"><span class="header-section-number">4.4</span> Simulation und Implementierung im Simulationstool</h2>
+</section>
+<section id="verifikation-und-validierung-des-modells" class="level2" data-number="4.5">
+<h2 data-number="4.5" class="anchored" data-anchor-id="verifikation-und-validierung-des-modells"><span class="header-section-number">4.5</span> Verifikation und Validierung des Modells</h2>
+</section>
+<section id="diskussion-der-modellergebnisse" class="level2" data-number="4.6">
+<h2 data-number="4.6" class="anchored" data-anchor-id="diskussion-der-modellergebnisse"><span class="header-section-number">4.6</span> Diskussion der Modellergebnisse</h2>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -675,7 +751,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </div>   
     <div class="nav-footer-center">
       &nbsp;
-    <div class="toc-actions"><ul><li><a href="https://github.com/mimeiners/class-d-test/edit/main/docs/03_Modellbildung.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mimeiners/class-d-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
+    <div class="toc-actions d-sm-block d-md-none"><ul><li><a href="https://github.com/mimeiners/class-d-test/edit/main/docs/03_Modellbildung.md" class="toc-action"><i class="bi bi-github"></i>Edit this page</a></li><li><a href="https://github.com/mimeiners/class-d-test/issues/new" class="toc-action"><i class="bi empty"></i>Report an issue</a></li></ul></div></div>
     <div class="nav-footer-right">
 <p>This thesis was built with <a href="https://quarto.org/">Quarto</a>.</p>
 </div>
