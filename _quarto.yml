@@ -14,9 +14,9 @@ book:
       C. Ymela-Dega, A. Huber und M. Meiners.
     right: |
       This thesis was built with <a href="https://quarto.org/">Quarto</a>.
-  cover-image: cover.jpg
-  favicon: cover.jpg
-  site-url: https://github.com/mimeiners/
+#  cover-image: images/hsb-logo.png
+#  favicon: images/hsb-logo.png
+  site-url: https://mimeiners.github.io/class-d-test/
   repo-url: https://github.com/mimeiners/class-d-test/
   repo-branch: main
   repo-actions: [edit, issue]
@@ -25,22 +25,22 @@ book:
   chapters:
     - index.qmd
 
-    - part: front-matter.qmd
+    - part: Front-Matter
       chapters:
-        - docs/00_Vorwort
+        - docs/00_Vorwort.md
     
-    - part: main-matter.qmd
+    - part: Main-Matter
       chapters:
-        - docs/01_Einleitung
-        - docs/02_Stand_der_Technik
-        - docs/03_Modellbildung
-        - docs/04_Teststand
-        - docs/05_Zusammenfassung
-        - docs/06_Bibliographie
+        - docs/01_Einleitung.md
+        - docs/02_Stand_der_Technik.md
+        - docs/03_Modellbildung.md
+        - docs/04_Teststand.md
+        - docs/05_Zusammenfassung.md
+        - docs/06_Bibliographie.md
 
-    - part: back-matter.qmd
+    - part: Back-Matter
       chapters:
-        - docs/07_Anhang
+        - docs/07_Anhang.md
       
 bibliography: _bibliography/references.bib
 
@@ -50,7 +50,7 @@ format:
   pdf:
     documentclass: scrreprt
 
-    author-meta: "C. Ymela-Dega, A. Huber, and M. Meiners"
-    callout-appearance: simple
+execute:
+  freeze: auto
 
 editor: visual

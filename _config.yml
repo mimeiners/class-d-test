@@ -11,7 +11,7 @@ exclude_patterns: ["LICENSE.md", "README.md"]
 only_build_toc_files: true
 
 # Short description about the book
-description: >- Bachelorthesis (B.Eng.)
+description: Bachelorthesis (B.Eng.)
 
 # HTML-specific settings
 # See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository

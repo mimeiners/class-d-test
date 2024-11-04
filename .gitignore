@@ -8,3 +8,5 @@ _build
 *_files
 _book
 .quarto
+
+/.quarto/

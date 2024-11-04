@@ -4,24 +4,17 @@ root: about/unsyllabus
 options:
   numbered: True
 parts:
-  - caption: Front-matter
-  - file: docs/00_Vorwort
-    title: Vorwort
-  - caption: Main-matter
+  - caption: Front-Matter
+    chapters:
+      - file: docs/00_Vorwort
+  - caption: Main-Matter
     chapters:
       - file: docs/01_Einleitung
-        title: Einleitung und Übersicht
       - file: docs/02_Stand_der_Technik
-        title: Stand der Technik
       - file: docs/03_Modellbildung
-        title: Modellbildung
       - file: docs/04_Teststand
-        title: Teststand
       - file: docs/05_Zusammenfassung
-        title: Zusammenfassung und Ausblick
       - file: docs/06_Bibliographie
-        title: Literaturverzeichnis
-  - caption: Back-matter
+  - caption: Back-Matter
     chapters:
       - file: docs/07_Anhang
-        title: Anhang A
