@@ -4,7 +4,7 @@
 title: Entwurf und Inbetriebnahme einer Testumgebung für Klasse-D Leistungsverstärker
 author: C. Ymele-Dega, A. Huber, M. Meiners
 copyright: "2024"
-logo: hsb-logo.png
+logo: images/hsb-logo.png
 
 exclude_patterns: ["LICENSE.md", "README.md"]
 

@@ -1,0 +1,56 @@
+project:
+  type: book
+  output-dir: _book
+
+book:
+  title: "Entwurf und Inbetriebnahme einer Testumgebung für Klasse-D Leistungsverstärker"
+  author: "C. Ymela-Dega, A. Huber, and M. Meiners"
+  date: "04.11.2024"
+  reader-mode: true
+
+  page-footer:
+    left: |
+      Entwurf und Inbetriebnahme einer Testumgebung für Klasse-D Leistungsverstärker
+      C. Ymela-Dega, A. Huber und M. Meiners.
+    right: |
+      This thesis was built with <a href="https://quarto.org/">Quarto</a>.
+  cover-image: cover.jpg
+  favicon: cover.jpg
+  site-url: https://github.com/mimeiners/
+  repo-url: https://github.com/mimeiners/class-d-test/
+  repo-branch: main
+  repo-actions: [edit, issue]
+
+
+  chapters:
+    - index.qmd
+
+    - part: front-matter.qmd
+      chapters:
+        - docs/00_Vorwort
+    
+    - part: main-matter.qmd
+      chapters:
+        - docs/01_Einleitung
+        - docs/02_Stand_der_Technik
+        - docs/03_Modellbildung
+        - docs/04_Teststand
+        - docs/05_Zusammenfassung
+        - docs/06_Bibliographie
+
+    - part: back-matter.qmd
+      chapters:
+        - docs/07_Anhang
+      
+bibliography: _bibliography/references.bib
+
+format:
+  html:
+    theme: cosmo
+  pdf:
+    documentclass: scrreprt
+
+    author-meta: "C. Ymela-Dega, A. Huber, and M. Meiners"
+    callout-appearance: simple
+
+editor: visual
